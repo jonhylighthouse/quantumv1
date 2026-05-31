@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quantum — Dashboard de red de equipo. Visualiza puntos, niveles, objetivos y estructura de tu red en tiempo real.">
+  <meta name="theme-color" content="#050505">
+  <title>Quantum — Dashboard de Red</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <!-- Favicon con la Q del logo -->
+  <link rel="icon" href="logo.png" type="image/png">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     LAYOUT PRINCIPAL
+════════════════════════════════════════════════════════════ -->
+<div class="app-layout">
+
+  <!-- ─── OVERLAY (mobile sidebar) ─── -->
+  <div id="sidebar-overlay" class="sidebar-overlay" role="presentation"></div>
+
+  <!-- ════════════════════════════════
+       SIDEBAR
+  ═════════════════════════════════ -->
+  <aside id="sidebar" class="sidebar" role="navigation" aria-label="Menú principal">
+
+    <!-- Logo oficial -->
+    <div class="sidebar-logo">
+      <a class="sidebar-logo-link" data-section="about" href="#" onclick="navigate('about');return false;"
+         aria-label="Ir a inicio Quantum">
+        <img src="logo.png" alt="Quantum Logo" class="sidebar-logo-img">
+      </a>
+    </div>
+
+    <!-- Navegación -->
+    <nav class="sidebar-nav">
+
+      <div class="nav-section-label">Principal</div>
+
+      <a class="nav-link active" data-section="dashboard" href="#" role="menuitem"
+         id="nav-dashboard" aria-current="page">
+        <span class="nav-icon">📊</span>
+        Dashboard
+      </a>
+
+      <a class="nav-link" data-section="network" href="#" role="menuitem"
+         id="nav-network">
+        <span class="nav-icon">🌐</span>
+        Arquitectura de Red
+      </a>
+
+      <a class="nav-link" data-section="goals" href="#" role="menuitem"
+         id="nav-goals">
+        <span class="nav-icon">🎯</span>
+        Objetivos
+      </a>
+
+      <a class="nav-link" data-section="simulator" href="#" role="menuitem"
+         id="nav-simulator">
+        <span class="nav-icon">⚡</span>
+        Simulador
+      </a>
+
+      <a class="nav-link" data-section="path" href="#" role="menuitem"
+         id="nav-path">
+        <span class="nav-icon">🧭</span>
+        Camino Sugerido
+      </a>
+
+      <div class="nav-section-label" style="margin-top:.75rem">Gestión</div>
+
+      <a class="nav-link" data-section="team" href="#" role="menuitem"
+         id="nav-team">
+        <span class="nav-icon">👥</span>
+        Equipo
+      </a>
+
+      <a class="nav-link" data-section="history" href="#" role="menuitem"
+         id="nav-history">
+        <span class="nav-icon">📋</span>
+        Historial
+      </a>
+
+      <div class="nav-section-label" style="margin-top:.75rem">Info</div>
+
+      <a class="nav-link" data-section="flow" href="#" role="menuitem"
+         id="nav-flow">
+        <span class="nav-icon">🔄</span>
+        Flujo de Puntos
+      </a>
+
+      <a class="nav-link" data-section="model" href="#" role="menuitem"
+         id="nav-model">
+        <span class="nav-icon">📚</span>
+        Entendiendo el Modelo
+      </a>
+
+      <a class="nav-link" data-section="about" href="#" role="menuitem"
+         id="nav-about">
+        <span class="nav-icon">💡</span>
+        Acerca del Negocio
+      </a>
+
+      <a class="nav-link" data-section="settings" href="#" role="menuitem"
+         id="nav-settings">
+        <span class="nav-icon">⚙️</span>
+        Configuración
+      </a>
+
+    </nav>
+
+    <!-- Estado de sincronización -->
+    <div class="sidebar-footer">
+      <div id="sync-badge" class="sync-badge">
+        <div id="sync-dot" class="sync-dot sync-dot-idle"></div>
+        <span id="sync-text">Sin sincronizar</span>
+      </div>
+    </div>
+
+  </aside>
+  <!-- /sidebar -->
+
+
+  <!-- ════════════════════════════════
+       CONTENIDO PRINCIPAL
+  ═════════════════════════════════ -->
+  <div class="main-content">
+
+    <!-- Topbar -->
+    <header class="topbar" role="banner">
+      <button id="hamburger" class="topbar-hamburger" aria-label="Abrir menú"
+              aria-expanded="false" aria-controls="sidebar">
+        ☰
+      </button>
+      <!-- Logo en topbar (mobile) -->
+      <a class="topbar-logo-wrap" data-section="about" href="#"
+         onclick="navigate('about');return false;" aria-label="Inicio">
+        <img src="logo.png" alt="Quantum" class="topbar-logo-img">
+        <span class="topbar-title">QUANTUM</span>
+      </a>
+      <div class="topbar-sync">
+        <div id="sync-badge-top" class="sync-badge" style="display:none"></div>
+      </div>
+    </header>
+
+    <!-- ─── SECCIÓN: ABOUT (inicio) ─── -->
+    <section id="section-about" class="section" aria-labelledby="about-title">
+      <!-- Renderizado por app.js → renderAbout() -->
+    </section>
+
+    <!-- ─── SECCIÓN: DASHBOARD ─── -->
+    <main id="section-dashboard" class="section" role="main">
+      <!-- Skeleton mientras carga -->
+      <div style="padding:2rem;color:#666;text-align:center">
+        <div class="skeleton" style="height:32px;width:200px;margin:0 auto 1rem"></div>
+        <div class="skeleton" style="height:120px;margin-bottom:.75rem"></div>
+        <div class="skeleton" style="height:120px;margin-bottom:.75rem"></div>
+      </div>
+    </main>
+
+    <!-- ─── SECCIÓN: RED ─── -->
+    <section id="section-network" class="section" aria-labelledby="network-title">
+    </section>
+
+    <!-- ─── SECCIÓN: OBJETIVOS ─── -->
+    <section id="section-goals" class="section" aria-labelledby="goals-title">
+    </section>
+
+    <!-- ─── SECCIÓN: SIMULADOR ─── -->
+    <section id="section-simulator" class="section" aria-labelledby="sim-title">
+    </section>
+
+    <!-- ─── SECCIÓN: CAMINO SUGERIDO ─── -->
+    <section id="section-path" class="section" aria-labelledby="path-title">
+    </section>
+
+    <!-- ─── SECCIÓN: EQUIPO ─── -->
+    <section id="section-team" class="section" aria-labelledby="team-title">
+    </section>
+
+    <!-- ─── SECCIÓN: HISTORIAL ─── -->
+    <section id="section-history" class="section" aria-labelledby="history-title">
+    </section>
+
+    <!-- ─── SECCIÓN: FLUJO DE PUNTOS ─── -->
+    <section id="section-flow" class="section" aria-labelledby="flow-title">
+    </section>
+
+    <!-- ─── SECCIÓN: MODELO ─── -->
+    <section id="section-model" class="section" aria-labelledby="model-title">
+    </section>
+
+    <!-- ─── SECCIÓN: CONFIGURACIÓN ─── -->
+    <section id="section-settings" class="section" aria-labelledby="settings-title">
+    </section>
+
+  </div>
+  <!-- /main-content -->
+
+</div>
+<!-- /app-layout -->
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     MODAL OVERLAY (agregar/editar miembro)
+════════════════════════════════════════════════════════════ -->
+<div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Formulario de miembro">
+  <!-- Contenido inyectado por openMemberModal() -->
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     NAVEGACIÓN MOBILE (bottom nav)
+════════════════════════════════════════════════════════════ -->
+<nav class="mobile-nav" role="navigation" aria-label="Navegación móvil">
+  <button class="mobile-nav-btn" data-section="about"
+          id="mob-nav-about" aria-label="Inicio">
+    <span>🏠</span>
+    <span>Inicio</span>
+  </button>
+  <button class="mobile-nav-btn active" data-section="dashboard"
+          id="mob-nav-dashboard" aria-label="Dashboard">
+    <span>📊</span>
+    <span>Dashboard</span>
+  </button>
+  <button class="mobile-nav-btn" data-section="network"
+          id="mob-nav-network" aria-label="Red">
+    <span>🌐</span>
+    <span>Red</span>
+  </button>
+  <button class="mobile-nav-btn" data-section="goals"
+          id="mob-nav-goals" aria-label="Objetivos">
+    <span>🎯</span>
+    <span>Metas</span>
+  </button>
+  <button class="mobile-nav-btn" data-section="simulator"
+          id="mob-nav-simulator" aria-label="Simulador">
+    <span>⚡</span>
+    <span>Sim.</span>
+  </button>
+  <button class="mobile-nav-btn" data-section="team"
+          id="mob-nav-team" aria-label="Equipo">
+    <span>👥</span>
+    <span>Equipo</span>
+  </button>
+</nav>
+
+
+<!-- ─── SCRIPTS ─── -->
+<script src="app.js"></script>
+
+</body>
+</html>
