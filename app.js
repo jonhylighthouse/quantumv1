@@ -55,7 +55,7 @@ const SEED_TEAM = [
   { id: "1", nombre: "Joy",  sponsorId: "",  puntos: 201, metaPersonal: 300, activo: true, fechaActualizacion: "2026-05-31" },
   { id: "2", nombre: "Jon",  sponsorId: "1", puntos:  85, metaPersonal: 150, activo: true, fechaActualizacion: "2026-05-31" },
   { id: "3", nombre: "Wall", sponsorId: "1", puntos:  25, metaPersonal: 150, activo: true, fechaActualizacion: "2026-05-31" },
-  { id: "4", nombre: "Mamá", sponsorId: "2", puntos:  25, metaPersonal: 150, activo: true, fechaActualizacion: "2026-05-31" },
+  { id: "4", nombre: "Maria", sponsorId: "2", puntos:  25, metaPersonal: 150, activo: true, fechaActualizacion: "2026-05-31" },
 ];
 
 // ┌─────────────────────────────────────────────────────────┐
