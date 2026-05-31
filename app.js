@@ -1487,7 +1487,7 @@ function renderAbout() {
       <img src="logo.png" alt="Quantum" class="about-logo" onerror="this.style.display='none'">
       <h1 class="about-tagline">Construye tu red.<br>Escala tu libertad.</h1>
       <p class="about-tagline-sub">
-        Quantum es un modelo de negocio basado en distribução por redes donde cada persona
+        Quantum es un modelo de negocio basado en distribucion por redes donde cada persona
         puede generar ingresos crecientes ayudando a otros a crecer.
       </p>
       <div class="about-cta-row">
